@@ -55,7 +55,11 @@ const Navigation = () => {
     { label: 'Beranda', href: '/' },
     { label: 'Kursus', href: '/courses' },
     { label: 'Playground', href: '/playground' },
-    { label: 'Tentang', href: '/about' }
+    { label: 'Tentang', href: '/about' },
++   { label: 'FAQ', href: '/faq' },
++   { label: 'Hubungi', href: '/contact' },
++   { label: 'Syarat', href: '/terms' },
++   { label: 'Privasi', href: '/privacy' },
   ];
 
   return (
