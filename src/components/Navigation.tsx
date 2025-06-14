@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import SekolabLogo from './SekolabLogo';
@@ -56,10 +55,10 @@ const Navigation = () => {
     { label: 'Kursus', href: '/courses' },
     { label: 'Playground', href: '/playground' },
     { label: 'Tentang', href: '/about' },
-+   { label: 'FAQ', href: '/faq' },
-+   { label: 'Hubungi', href: '/contact' },
-+   { label: 'Syarat', href: '/terms' },
-+   { label: 'Privasi', href: '/privacy' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Hubungi', href: '/contact' },
+    { label: 'Syarat', href: '/terms' },
+    { label: 'Privasi', href: '/privacy' },
   ];
 
   return (
@@ -143,4 +142,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
