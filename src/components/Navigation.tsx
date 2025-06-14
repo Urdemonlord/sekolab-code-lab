@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import SekolabLogo from './SekolabLogo';
+import { Link } from "react-router-dom"; // Tambahkan import ini
 
 // Komponen tombol dark mode switch
 function ThemeSwitch() {
@@ -78,12 +79,16 @@ const Navigation = () => {
           {/* Tombol dark mode */}
           <div className="hidden md:flex items-center space-x-2">
             <ThemeSwitch />
-            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
-              Masuk
-            </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              Daftar Gratis
-            </Button>
+            <Link to="/auth">
+              <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
+                Masuk
+              </Button>
+            </Link>
+            <Link to="/auth">
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
+                Daftar Gratis
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -114,12 +119,16 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="pt-4 space-y-2">
-                <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary">
-                  Masuk
-                </Button>
-                <Button size="sm" className="w-full bg-primary hover:bg-primary/90">
-                  Daftar Gratis
-                </Button>
+                <Link to="/auth">
+                  <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary">
+                    Masuk
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button size="sm" className="w-full bg-primary hover:bg-primary/90">
+                    Daftar Gratis
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -130,3 +139,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
