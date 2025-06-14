@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -26,16 +25,16 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#2563EB', // Sekolab Blue
+					DEFAULT: '#2659c3', // Sekolab Blue dari logo baru
 					foreground: '#FFFFFF'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
 				},
 				accent: {
-					DEFAULT: '#F59E0B', // Amber 500
-					foreground: '#FFFFFF'
+					DEFAULT: '#FFC029', // Kuning emas dari logo baru
+					foreground: '#223055'
+				},
+				secondary: {
+					DEFAULT: '#eaf1fc', // Soft blue dari background logo
+					foreground: '#223055'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -75,9 +74,17 @@ export default {
 				xl: '12px'
 			},
 			boxShadow: {
-				'soft': '0 4px 12px rgba(0, 0, 0, 0.06)',
+				'soft': '0 4px 12px rgba(38, 89, 195, 0.10)', // Shadow lebih kebiruan
 			},
 			keyframes: {
+				'glow': {
+					'0%, 100%': {
+						filter: 'drop-shadow(0 0 24px #2659c370)'
+					},
+					'50%': {
+						filter: 'drop-shadow(0 0 36px #2659c3cc)'
+					}
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -104,20 +111,12 @@ export default {
 						transform: 'translateY(0)'
 					}
 				},
-				'glow': {
-					'0%, 100%': {
-						filter: 'drop-shadow(0 0 20px rgba(37, 99, 235, 0.3))'
-					},
-					'50%': {
-						filter: 'drop-shadow(0 0 30px rgba(37, 99, 235, 0.5))'
-					}
-				}
 			},
 			animation: {
+				'glow': 'glow 2.2s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'glow': 'glow 2s ease-in-out infinite'
 			}
 		}
 	},

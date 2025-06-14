@@ -7,6 +7,7 @@
 
 @layer base {
   :root {
+    /* warna sesuai logo baru */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -16,7 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 221 100% 97%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -27,7 +28,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 37 91% 55%;
+    --ring: 45 100% 55%;
 
     --radius: 12px;
 
@@ -90,10 +91,11 @@
 
 @layer components {
   .gradient-text {
+    /* Gradien logo: biru ke kuning emas */
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-soft;
   }
 }

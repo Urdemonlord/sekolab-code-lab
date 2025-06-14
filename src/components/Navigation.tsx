@@ -14,7 +14,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200 z-50">
+    <nav className="fixed top-0 w-full bg-white/85 backdrop-blur-md border-b border-[#e2eaf6] z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <SekolabLogo size="sm" />
@@ -25,7 +25,7 @@ const Navigation = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                className="text-[#223055] hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.label}
               </a>
@@ -33,7 +33,7 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary/10 hover:text-primary">
               Masuk
             </Button>
             <Button size="sm" className="bg-primary hover:bg-primary/90">
@@ -48,7 +48,7 @@ const Navigation = () => {
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </Button>
@@ -57,19 +57,19 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 animate-fade-in">
+          <div className="md:hidden py-4 border-t border-[#e2eaf6] animate-fade-in bg-white/95">
             <div className="space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="block text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+                  className="block text-[#223055] hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </a>
               ))}
               <div className="pt-4 space-y-2">
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary">
                   Masuk
                 </Button>
                 <Button size="sm" className="w-full bg-primary hover:bg-primary/90">

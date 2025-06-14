@@ -12,7 +12,7 @@ const CoursesPreview = () => {
       duration: "8 minggu",
       students: 1240,
       image: "🐍",
-      color: "bg-green-50 border-green-200"
+      color: "bg-[#eaf1fc] border-[#bad1ff]"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const CoursesPreview = () => {
       duration: "12 minggu", 
       students: 890,
       image: "⚡",
-      color: "bg-yellow-50 border-yellow-200"
+      color: "bg-[#fff7e0] border-[#ffe7b2]"
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const CoursesPreview = () => {
       duration: "10 minggu",
       students: 567,
       image: "🤖",
-      color: "bg-purple-50 border-purple-200"
+      color: "bg-[#f6f0ff] border-[#e2d7fb]"
     },
     {
       id: 4,
@@ -42,18 +42,18 @@ const CoursesPreview = () => {
       duration: "14 minggu",
       students: 423,
       image: "⚛️",
-      color: "bg-blue-50 border-blue-200"
+      color: "bg-[#eaf1fc] border-[#bad1ff]"
     }
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-[#f7fafc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#223055] mb-4">
             Kursus Populer
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-[#3f4d6d] max-w-2xl mx-auto">
             Pilih kursus yang sesuai dengan level dan minat Anda
           </p>
         </div>
@@ -66,13 +66,13 @@ const CoursesPreview = () => {
             >
               <CardHeader className="text-center pb-4">
                 <div className="text-4xl mb-3">{course.image}</div>
-                <CardTitle className="text-lg font-bold">{course.title}</CardTitle>
-                <CardDescription className="text-gray-600">
+                <CardTitle className="text-lg font-bold text-[#2a3d79]">{course.title}</CardTitle>
+                <CardDescription className="text-[#5a6ca8]">
                   {course.description}
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <div className="space-y-2 text-sm text-gray-500 mb-4">
+                <div className="space-y-2 text-sm text-[#7988ab] mb-4">
                   <div className="flex justify-between">
                     <span>Level:</span>
                     <span className="font-medium">{course.level}</span>
@@ -101,7 +101,7 @@ const CoursesPreview = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white"
+            className="rounded-xl border-2 border-primary text-primary hover:bg-primary/10 hover:text-primary"
           >
             Lihat Semua Kursus →
           </Button>

@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button';
 
 const PlaygroundPreview = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#223055] mb-6">
               Coding Playground
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-[#3f4d6d] mb-8">
               Tulis, test, dan jalankan kode langsung di browser. 
               Tidak perlu install software apapun!
             </p>
@@ -21,18 +21,18 @@ const PlaygroundPreview = () => {
                   <span className="text-xs">✓</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Editor Code Modern</h3>
-                  <p className="text-gray-600">Syntax highlighting, autocomplete, dan error detection</p>
+                  <h3 className="font-semibold text-[#223055]">Editor Code Modern</h3>
+                  <p className="text-[#506499]">Syntax highlighting, autocomplete, dan error detection</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-6 h-6 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                   <span className="text-xs">✓</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Multi Language</h3>
-                  <p className="text-gray-600">Support Python, JavaScript, HTML/CSS, dan lainnya</p>
+                  <h3 className="font-semibold text-[#223055]">Multi Language</h3>
+                  <p className="text-[#506499]">Support Python, JavaScript, HTML/CSS, dan lainnya</p>
                 </div>
               </div>
               
@@ -41,22 +41,22 @@ const PlaygroundPreview = () => {
                   <span className="text-xs">✓</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Real-time Output</h3>
-                  <p className="text-gray-600">Lihat hasil kode secara langsung</p>
+                  <h3 className="font-semibold text-[#223055]">Real-time Output</h3>
+                  <p className="text-[#506499]">Lihat hasil kode secara langsung</p>
                 </div>
               </div>
             </div>
 
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-white rounded-xl px-8"
+              className="bg-accent hover:bg-accent/90 text-[#223055] rounded-xl px-8"
             >
               🚀 Coba Playground
             </Button>
           </div>
 
           <div className="relative">
-            <div className="bg-gray-900 rounded-xl shadow-2xl p-6">
+            <div className="bg-[#223055] rounded-xl shadow-2xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -65,24 +65,24 @@ const PlaygroundPreview = () => {
               </div>
               
               <div className="font-mono text-sm">
-                <div className="text-purple-400">def</div>
-                <span className="text-blue-400"> hello_sekolab</span>
+                <div className="text-[#bbafff]">def</div>
+                <span className="text-[#63b8ff]"> hello_sekolab</span>
                 <span className="text-white">():</span>
                 <br />
                 <span className="text-white ml-4">print(</span>
-                <span className="text-green-400">"Selamat datang di Sekolab!"</span>
+                <span className="text-[#ffd700]">"Selamat datang di Sekolab!"</span>
                 <span className="text-white">)</span>
                 <br />
                 <span className="text-white ml-4">print(</span>
-                <span className="text-green-400">"Mari belajar coding bersama! 🚀"</span>
+                <span className="text-[#ffd700]">"Mari belajar coding bersama! 🚀"</span>
                 <span className="text-white">)</span>
                 <br />
                 <br />
-                <div className="text-yellow-400">hello_sekolab()</div>
+                <div className="text-[#ffe066]">hello_sekolab()</div>
               </div>
               
-              <div className="mt-6 pt-4 border-t border-gray-700">
-                <div className="text-green-400 font-mono text-sm">
+              <div className="mt-6 pt-4 border-t border-[#4566a9]">
+                <div className="text-[#41e580] font-mono text-sm">
                   <div>Selamat datang di Sekolab!</div>
                   <div>Mari belajar coding bersama! 🚀</div>
                 </div>
