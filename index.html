@@ -17,6 +17,15 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@sekolab" />
+
+    <script>
+      // Inisialisasi tema lebih awal untuk mencegah flash antara mode terang dan gelap
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
 
   <body>
