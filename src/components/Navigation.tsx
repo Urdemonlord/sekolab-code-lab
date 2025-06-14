@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import SekolabLogo from './SekolabLogo';
-import { Link } from "react-router-dom"; // Tambahkan import ini
+import { Link } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 
 // Komponen tombol dark mode switch
 function ThemeSwitch() {
@@ -49,12 +51,38 @@ function ThemeSwitch() {
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const helpRef = useRef<HTMLDivElement | null>(null);
 
-  const navItems = [
+  useEffect(() => {
+    // Tutup dropdown bantuan jika klik di luar
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        helpRef.current &&
+        !helpRef.current.contains(event.target as Node)
+      ) {
+        setIsHelpOpen(false);
+      }
+    }
+    if (isHelpOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [isHelpOpen]);
+
+  const mainNavItems = [
     { label: 'Beranda', href: '/' },
     { label: 'Kursus', href: '/courses' },
     { label: 'Playground', href: '/playground' },
     { label: 'Tentang', href: '/about' },
+  ];
+
+  // Halaman bantuan (dropdown)
+  const helpNavItems = [
     { label: 'FAQ', href: '/faq' },
     { label: 'Hubungi', href: '/contact' },
     { label: 'Syarat', href: '/terms' },
@@ -66,20 +94,47 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <SekolabLogo size="sm" />
-          
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
+            {mainNavItems.map((item) => (
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-[#223055] dark:text-[#eaf1fc] hover:text-primary dark:hover:text-accent transition-colors duration-200 font-medium"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
+            {/* Dropdown Help */}
+            <div className="relative" ref={helpRef}>
+              <button
+                className="flex items-center gap-1 text-[#223055] dark:text-[#eaf1fc] hover:text-primary dark:hover:text-accent transition-colors duration-200 font-medium focus:outline-none"
+                onClick={() => setIsHelpOpen((p) => !p)}
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={isHelpOpen}
+              >
+                Bantuan
+                <ChevronDown className={`w-4 h-4 transition-transform ${isHelpOpen ? "rotate-180" : ""}`} />
+              </button>
+              {isHelpOpen && (
+                <div className="absolute right-0 mt-2 min-w-[170px] bg-white dark:bg-[#273354] border border-gray-200 dark:border-[#253060] rounded-md shadow-lg z-40 py-1">
+                  {helpNavItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      className="block px-4 py-2 text-sm text-[#223055] dark:text-[#eaf1fc] hover:bg-primary/10 dark:hover:bg-primary/20 rounded transition-colors"
+                      onClick={() => setIsHelpOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Tombol dark mode */}
+          {/* Tombol dark mode, Masuk, Daftar (desktop) */}
           <div className="hidden md:flex items-center space-x-2">
             <ThemeSwitch />
             <Link to="/auth">
@@ -100,6 +155,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
+              aria-label="Menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <svg className="w-6 h-6 text-primary dark:text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,17 +166,33 @@ const Navigation = () => {
         </div>
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-[#e2eaf6] dark:border-[#23304b] animate-fade-in bg-white/95 dark:bg-[#222e49]">
+          <div className="md:hidden py-4 border-t border-[#e2eaf6] dark:border-[#23304b] animate-fade-in bg-white/95 dark:bg-[#222e49] z-50">
             <div className="space-y-4">
-              {navItems.map((item) => (
-                <a
+              {/* Show main nav */}
+              {mainNavItems.map((item) => (
+                <Link
                   key={item.label}
-                  href={item.href}
-                  className="block text-[#223055] dark:text-[#eaf1fc] hover:text-primary dark:hover:text-accent transition-colors duration-200 font-medium"
+                  to={item.href}
+                  className="block text-[#223055] dark:text-[#eaf1fc] font-medium hover:text-primary dark:hover:text-accent transition-colors duration-200"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
+              {/* Help nav items on mobile */}
+              <div className="pt-3 border-t border-gray-200 dark:border-[#253060]">
+                <span className="block text-xs uppercase tracking-wider text-gray-400 dark:text-gray-300 px-1 mb-2">Bantuan</span>
+                {helpNavItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="block text-[#223055] dark:text-[#eaf1fc] font-medium px-2 py-1.5 rounded hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
               <div className="pt-4 space-y-2">
                 <Link to="/auth">
                   <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary/10 hover:text-primary">
