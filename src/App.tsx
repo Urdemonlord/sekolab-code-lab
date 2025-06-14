@@ -9,6 +9,7 @@ import Playground from "./pages/Playground";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
+import AuthPage from "./pages/Auth";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/playground" element={<Playground />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
+          <Route path="/auth" element={<AuthPage />} /> {/* tambahkan rute auth */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

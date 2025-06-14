@@ -1,8 +1,10 @@
-
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 const Profile = () => {
   const user = {
@@ -49,6 +51,20 @@ const Profile = () => {
       completedLessons: 4
     }
   ];
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) navigate("/auth");
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) navigate("/auth");
+    });
+    return () => {
+      listener.subscription.unsubscribe();
+    };
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-gray-50">
