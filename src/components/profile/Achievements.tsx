@@ -18,11 +18,10 @@ const Achievements = ({ achievements }: { achievements: Achievement[] }) => (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {achievements.map((achievement) => (
           <div 
-            key={achievement.id} 
-            className={`border rounded-lg p-4 text-center transition-all ${
+            key={achievement.id}            className={`border rounded-lg p-4 text-center transition-all ${
               achievement.earned 
-                ? 'bg-green-50 border-green-200 text-green-800' 
-                : 'bg-gray-50 border-gray-200 text-gray-500'
+                ? 'bg-green-50 dark:bg-green-950/50 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200' 
+                : 'bg-muted border-border text-muted-foreground'
             }`}
           >
             <div className="text-3xl mb-2">{achievement.icon}</div>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan: Grid Layout Dashboard</title>
+    <style>
+        /* TODO: Implementasikan CSS Grid untuk layout dashboard */
+        
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+        }
+
+        /* 1. Container utama dengan CSS Grid */
+        .dashboard {
+            /* TODO: Gunakan display: grid */
+            /* TODO: Definisikan grid-template-areas */
+            /* TODO: Atur grid-template-rows dan grid-template-columns */
+            /* TODO: Tambahkan gap */
+            /* TODO: Set min-height: 100vh */
+            display: grid;
+            grid-template-areas: 
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 0;
+            min-height: 100vh;
+        }
+
+        /* 2. Header area */
+        .header {
+            /* TODO: Assign grid-area: header */
+            /* TODO: Style untuk header */
+            grid-area: header;
+        }
+
+        /* 3. Sidebar area */
+        .sidebar {
+            /* TODO: Assign grid-area: sidebar */
+            /* TODO: Style untuk sidebar */
+            grid-area: sidebar;
+        }
+
+        /* 4. Main content area */
+        .main {
+            /* TODO: Assign grid-area: main */
+            /* TODO: Style untuk main content */
+            grid-area: main;
+        }
+
+        /* 5. Footer area */
+        .footer {
+            /* TODO: Assign grid-area: footer */
+            /* TODO: Style untuk footer */
+            grid-area: footer;
+        }
+
+        /* 6. Content grid untuk main area */
+        .content-grid {
+            /* TODO: Nested grid untuk content cards */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* 7. Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard {
+                /* TODO: Ubah grid layout untuk mobile */
+                /* TODO: Stack semua area secara vertikal */
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr auto auto;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Styles untuk demo content */
+        .header {
+            background: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar a:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+
+        .main {
+            padding: 2rem;
+        }
+
+        .main h2 {
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .instructions {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .instructions h3 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            line-height: 1.6;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .hint {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Grid Layout -->
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <h1>Dashboard Admin</h1>
+            <div>
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#">📊 Dashboard</a></li>
+                <li><a href="#">👥 Users</a></li>
+                <li><a href="#">📈 Analytics</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
+                <li><a href="#">📄 Reports</a></li>
+                <li><a href="#">💬 Messages</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="instructions">
+                <h3>📝 Instruksi Latihan Grid Layout</h3>
+                <p>Lengkapi CSS untuk membuat layout dashboard menggunakan CSS Grid. Ikuti langkah-langkah berikut:</p>
+                
+                <ol>
+                    <li><strong>Dashboard Container (.dashboard)</strong>
+                        <ul>
+                            <li>Gunakan <code>display: grid</code></li>
+                            <li>Definisikan <code>grid-template-areas</code>:
+                                <pre>"header header"
+"sidebar main"
+"footer footer"</pre>
+                            </li>
+                            <li>Atur <code>grid-template-columns: 250px 1fr</code></li>
+                            <li>Atur <code>grid-template-rows: auto 1fr auto</code></li>
+                            <li>Tambahkan <code>min-height: 100vh</code></li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Assign Grid Areas</strong>
+                        <ul>
+                            <li>.header → <code>grid-area: header</code></li>
+                            <li>.sidebar → <code>grid-area: sidebar</code></li>
+                            <li>.main → <code>grid-area: main</code></li>
+                            <li>.footer → <code>grid-area: footer</code></li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Content Grid (.content-grid)</strong>
+                        <ul>
+                            <li>Buat nested grid untuk content cards</li>
+                            <li>Gunakan <code>grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))</code></li>
+                            <li>Tambahkan gap untuk spacing</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Responsive Design</strong>
+                        <ul>
+                            <li>Pada mobile (max-width: 768px), ubah grid menjadi:
+                                <pre>"header"
+"main"  
+"sidebar"
+"footer"</pre>
+                            </li>
+                            <li>Gunakan <code>grid-template-columns: 1fr</code></li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="hint">
+                    <strong>💡 Hint:</strong> CSS Grid sangat powerful untuk layout 2D. Gunakan grid-template-areas untuk membuat layout yang mudah dibaca dan diubah!
+                </div>
+            </div>
+
+            <h2>Content Area</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>📊 Total Users</h3>
+                    <p>Jumlah total pengguna yang terdaftar di platform.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>📈 Revenue</h3>
+                    <p>Pendapatan bulan ini mengalami peningkatan signifikan.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>⭐ Reviews</h3>
+                    <p>Rating dan review dari pengguna platform.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>🎯 Goals</h3>
+                    <p>Target dan pencapaian untuk periode ini.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Sekolab Dashboard. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

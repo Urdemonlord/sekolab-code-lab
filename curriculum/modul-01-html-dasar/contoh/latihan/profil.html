@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Saya - Latihan HTML</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .profile-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    .profile-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #667eea;
+      margin-bottom: 15px;
+    }
+    h1 {
+      color: #333;
+      margin: 10px 0;
+      font-size: 2.2em;
+    }
+    .subtitle {
+      color: #666;
+      font-style: italic;
+      font-size: 1.1em;
+    }
+    .section {
+      margin: 25px 0;
+    }
+    .section h2 {
+      color: #667eea;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .description {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+      margin: 15px 0;
+    }
+    ul, ol {
+      padding-left: 25px;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .social-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: #5a6fd8;
+      transform: translateY(-2px);
+    }
+    .contact-info {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 4px solid #ffc107;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-card">
+    <div class="profile-header">
+      <img src="https://via.placeholder.com/150x150/667eea/ffffff?text=👤" alt="Foto Profil" class="profile-photo">
+      <h1>Ahmad Sekolab</h1>
+      <p class="subtitle">Web Developer & UI/UX Designer</p>
+    </div>
+
+    <div class="section">
+      <h2>📖 Tentang Saya</h2>
+      <div class="description">
+        <p>
+          Halo! Saya Ahmad, seorang web developer yang passionate dalam menciptakan 
+          pengalaman digital yang menarik dan fungsional. Saya memiliki pengalaman 
+          dalam pengembangan frontend dan backend, serta memiliki ketertarikan khusus 
+          pada desain antarmuka pengguna.
+        </p>
+        <p>
+          Saat ini saya sedang memperdalam pengetahuan tentang teknologi web modern 
+          dan selalu antusias untuk belajar hal-hal baru dalam dunia programming.
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎯 Hobi & Minat</h2>
+      <ul>
+        <li>💻 Programming (JavaScript, Python, React)</li>
+        <li>🎨 UI/UX Design</li>
+        <li>📚 Membaca buku teknologi</li>
+        <li>🎮 Gaming</li>
+        <li>📸 Fotografi</li>
+        <li>🏃‍♂️ Olahraga (lari, badminton)</li>
+        <li>🎵 Mendengarkan musik</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🎓 Riwayat Pendidikan</h2>
+      <ol>
+        <li>
+          <strong>SD Negeri 1 Jakarta</strong> (2010-2016)
+          <br><small>Dasar-dasar pendidikan dan pengembangan karakter</small>
+        </li>
+        <li>
+          <strong>SMP Negeri 5 Jakarta</strong> (2016-2019)
+          <br><small>Mulai tertarik dengan teknologi dan komputer</small>
+        </li>
+        <li>
+          <strong>SMA Negeri 3 Jakarta</strong> (2019-2022)
+          <br><small>Jurusan IPA, aktif di klub programming</small>
+        </li>
+        <li>
+          <strong>Universitas Indonesia</strong> (2022-sekarang)
+          <br><small>S1 Teknik Informatika - sedang semester 6</small>
+        </li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>💼 Pengalaman & Proyek</h2>
+      <div class="highlight">
+        <h3>Proyek Terbaru:</h3>
+        <ul>
+          <li><strong>Website Portfolio Personal</strong> - Menggunakan HTML, CSS, JavaScript</li>
+          <li><strong>Aplikasi Todo List</strong> - React + Local Storage</li>
+          <li><strong>Landing Page Perusahaan</strong> - Responsive design dengan Bootstrap</li>
+          <li><strong>Blog Sederhana</strong> - PHP + MySQL</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Keahlian Teknis</h2>
+      <ul>
+        <li><strong>Frontend:</strong> HTML, CSS, JavaScript, React, Vue.js</li>
+        <li><strong>Backend:</strong> Node.js, PHP, Python</li>
+        <li><strong>Database:</strong> MySQL, MongoDB</li>
+        <li><strong>Tools:</strong> Git, VS Code, Figma, Photoshop</li>
+        <li><strong>Framework CSS:</strong> Bootstrap, Tailwind CSS</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🌐 Media Sosial & Kontak</h2>
+      <div class="social-links">
+        <a href="https://github.com/ahmadsekolab" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/ahmadsekolab" target="_blank">LinkedIn</a>
+        <a href="https://instagram.com/ahmadsekolab" target="_blank">Instagram</a>
+        <a href="mailto:ahmad@sekolab.com">Email</a>
+      </div>
+      
+      <div class="contact-info">
+        <p><strong>📧 Email:</strong> ahmad@sekolab.com</p>
+        <p><strong>📱 WhatsApp:</strong> +62 812-3456-7890</p>
+        <p><strong>📍 Lokasi:</strong> Jakarta, Indonesia</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎯 Tujuan & Aspirasi</h2>
+      <div class="description">
+        <p>
+          Saya bercita-cita menjadi <strong>Full-Stack Developer</strong> yang handal dan 
+          berkontribusi dalam pengembangan teknologi yang bermanfaat bagi masyarakat. 
+          Saya ingin terus belajar dan mengikuti perkembangan teknologi terbaru.
+        </p>
+        <p>
+          Target jangka pendek saya adalah menguasai teknologi web modern seperti 
+          React, Node.js, dan cloud computing untuk membangun aplikasi web yang scalable.
+        </p>
+      </div>
+    </div>
+
+    <!-- Komentar: Bagian ini bisa ditambahkan untuk informasi tambahan -->
+    <!-- 
+    <div class="section">
+      <h2>🏆 Prestasi</h2>
+      <ul>
+        <li>Juara 2 Lomba Web Development 2023</li>
+        <li>Sertifikat JavaScript dari freeCodeCamp</li>
+        <li>Peserta Google Developer Student Clubs</li>
+      </ul>
+    </div>
+    -->
+
+  </div>
+
+  <footer style="text-align: center; color: white; margin-top: 20px;">
+    <p>&copy; 2025 Ahmad Sekolab. Dibuat dengan ❤️ menggunakan HTML & CSS</p>
+    <p><small><a href="../index.html" style="color: #fff;">Kembali ke Contoh HTML</a></small></p>
+  </footer>
+</body>
+</html>

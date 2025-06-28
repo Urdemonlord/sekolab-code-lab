@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Dasar - Contoh Implementasi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    .section {
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #667eea;
+    }
+    .demo-section {
+      background: #f8f9fa;
+    }
+    .code-section {
+      background: #2d3748;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
+    .output {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #2196f3;
+      margin: 15px 0;
+    }
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #5a6fd8;
+      transform: translateY(-2px);
+    }
+    input, select {
+      padding: 8px 12px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #ffc107;
+      margin: 15px 0;
+    }
+    .result {
+      font-weight: bold;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 JavaScript Dasar - Demo Interaktif</h1>
+    
+    <div class="highlight">
+      <strong>💡 Panduan:</strong> Buka Console Browser (F12) untuk melihat output console.log(). 
+      Klik tombol-tombol di bawah untuk melihat JavaScript beraksi!
+    </div>
+
+    <!-- Variabel dan Tipe Data -->
+    <div class="section demo-section">
+      <h2>1. 📝 Variabel dan Tipe Data</h2>
+      <p>Demonstrasi berbagai tipe data JavaScript:</p>
+      
+      <button onclick="demoVariables()">Demo Variabel</button>
+      <button onclick="demoTypeOf()">Cek Tipe Data</button>
+      
+      <div id="variableOutput" class="output" style="display:none;">
+        <h4>Output Variabel:</h4>
+        <div id="variableResult"></div>
+      </div>
+    </div>
+
+    <!-- Operator -->
+    <div class="section demo-section">
+      <h2>2. ⚡ Operator dan Kalkulasi</h2>
+      <p>Kalkulator sederhana dengan berbagai operator:</p>
+      
+      <div>
+        <input type="number" id="num1" placeholder="Angka 1" value="10">
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">×</option>
+          <option value="/">/</option>
+          <option value="%">%</option>
+          <option value="**">^</option>
+        </select>
+        <input type="number" id="num2" placeholder="Angka 2" value="5">
+        <button onclick="calculate()">Hitung</button>
+      </div>
+      
+      <div id="calcOutput" class="output" style="display:none;">
+        <h4>Hasil Kalkulasi:</h4>
+        <div id="calcResult" class="result"></div>
+      </div>
+    </div>
+
+    <!-- Conditional -->
+    <div class="section demo-section">
+      <h2>3. 🎯 Conditional Statements</h2>
+      <p>Sistem grading berdasarkan nilai:</p>
+      
+      <div>
+        <input type="number" id="grade" placeholder="Masukkan nilai (0-100)" min="0" max="100">
+        <button onclick="checkGrade()">Cek Grade</button>
+      </div>
+      
+      <div id="gradeOutput" class="output" style="display:none;">
+        <h4>Hasil Grading:</h4>
+        <div id="gradeResult" class="result"></div>
+      </div>
+    </div>
+
+    <!-- Loops -->
+    <div class="section demo-section">
+      <h2>4. 🔄 Loops dan Iterasi</h2>
+      <p>Demonstrasi berbagai jenis loop:</p>
+      
+      <button onclick="demoForLoop()">For Loop</button>
+      <button onclick="demoWhileLoop()">While Loop</button>
+      <button onclick="demoArrayLoop()">Array Loop</button>
+      
+      <div id="loopOutput" class="output" style="display:none;">
+        <h4>Output Loop:</h4>
+        <div id="loopResult"></div>
+      </div>
+    </div>
+
+    <!-- Functions -->
+    <div class="section demo-section">
+      <h2>5. 🛠️ Functions</h2>
+      <p>Contoh penggunaan function:</p>
+      
+      <div>
+        <input type="text" id="userName" placeholder="Masukkan nama Anda">
+        <button onclick="greetUser()">Sapa Saya</button>
+        <button onclick="demoArrowFunction()">Demo Arrow Function</button>
+      </div>
+      
+      <div id="functionOutput" class="output" style="display:none;">
+        <h4>Output Function:</h4>
+        <div id="functionResult" class="result"></div>
+      </div>
+    </div>
+
+    <!-- Object dan Array -->
+    <div class="section demo-section">
+      <h2>6. 📦 Object dan Array</h2>
+      <p>Manipulasi data dengan object dan array:</p>
+      
+      <button onclick="demoObject()">Demo Object</button>
+      <button onclick="demoArray()">Demo Array</button>
+      <button onclick="demoStudentData()">Data Mahasiswa</button>
+      
+      <div id="objectOutput" class="output" style="display:none;">
+        <h4>Output Object/Array:</h4>
+        <div id="objectResult"></div>
+      </div>
+    </div>
+
+    <!-- Mini Project -->
+    <div class="section demo-section">
+      <h2>7. 🎮 Mini Project: Todo List</h2>
+      <p>Aplikasi todo sederhana menggunakan JavaScript:</p>
+      
+      <div>
+        <input type="text" id="todoInput" placeholder="Masukkan task baru">
+        <button onclick="addTodo()">Tambah Task</button>
+        <button onclick="clearTodos()">Clear All</button>
+      </div>
+      
+      <div id="todoList" style="margin-top: 15px;"></div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>📚 Code Reference</h2>
+      <p>Berikut adalah kode JavaScript yang digunakan dalam demo di atas:</p>
+      
+      <div class="code-section">
+        <pre><code>// 1. Variabel dan Tipe Data
+function demoVariables() {
+  const name = 'Ahmad Sekolab';
+  const age = 25;
+  const isStudent = true;
+  const hobbies = ['coding', 'gaming', 'reading'];
+  const person = { name: 'Ahmad', age: 25 };
+  
+  console.log('Demo Variabel:', { name, age, isStudent, hobbies, person });
+}
+
+// 2. Calculator Function
+function calculate() {
+  const num1 = parseFloat(document.getElementById('num1').value);
+  const num2 = parseFloat(document.getElementById('num2').value);
+  const operator = document.getElementById('operator').value;
+  
+  let result;
+  switch(operator) {
+    case '+': result = num1 + num2; break;
+    case '-': result = num1 - num2; break;
+    case '*': result = num1 * num2; break;
+    case '/': result = num2 !== 0 ? num1 / num2 : 'Error: Division by zero'; break;
+    case '%': result = num1 % num2; break;
+    case '**': result = num1 ** num2; break;
+    default: result = 'Invalid operator';
+  }
+  
+  return result;
+}
+
+// 3. Grading System
+function checkGrade() {
+  const score = parseInt(document.getElementById('grade').value);
+  
+  if (score >= 90) return 'A - Excellent!';
+  else if (score >= 80) return 'B - Good!';
+  else if (score >= 70) return 'C - Fair';
+  else if (score >= 60) return 'D - Need Improvement';
+  else return 'F - Failed';
+}
+
+// 4. Loop Examples
+function demoForLoop() {
+  let output = '';
+  for (let i = 1; i <= 5; i++) {
+    output += `Iterasi ${i}: ${i * i}<br>`;
+  }
+  return output;
+}</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Global variables for todo list
+    let todos = [];
+
+    // 1. Demo Variabel dan Tipe Data
+    function demoVariables() {
+      const name = 'Ahmad Sekolab';
+      const age = 25;
+      const height = 175.5;
+      const isStudent = true;
+      const favoriteColor = null;
+      let undefinedVar;
+      
+      const output = document.getElementById('variableOutput');
+      const result = document.getElementById('variableResult');
+      
+      result.innerHTML = `
+        <strong>String:</strong> "${name}" (${typeof name})<br>
+        <strong>Number (Integer):</strong> ${age} (${typeof age})<br>
+        <strong>Number (Float):</strong> ${height} (${typeof height})<br>
+        <strong>Boolean:</strong> ${isStudent} (${typeof isStudent})<br>
+        <strong>Null:</strong> ${favoriteColor} (${typeof favoriteColor})<br>
+        <strong>Undefined:</strong> ${undefinedVar} (${typeof undefinedVar})
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log('Demo Variabel:', {
+        name, age, height, isStudent, favoriteColor, undefinedVar
+      });
+    }
+
+    function demoTypeOf() {
+      const examples = [
+        42,
+        "Hello World",
+        true,
+        null,
+        undefined,
+        [],
+        {},
+        function() {}
+      ];
+      
+      console.log('=== DEMO TYPEOF ===');
+      examples.forEach((item, index) => {
+        console.log(`${index + 1}. ${item} => ${typeof item}`);
+      });
+    }
+
+    // 2. Calculator
+    function calculate() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const operator = document.getElementById('operator').value;
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        alert('Masukkan angka yang valid!');
+        return;
+      }
+      
+      let result;
+      let operatorName;
+      
+      switch(operator) {
+        case '+':
+          result = num1 + num2;
+          operatorName = 'Penjumlahan';
+          break;
+        case '-':
+          result = num1 - num2;
+          operatorName = 'Pengurangan';
+          break;
+        case '*':
+          result = num1 * num2;
+          operatorName = 'Perkalian';
+          break;
+        case '/':
+          if (num2 === 0) {
+            result = 'Error: Tidak bisa dibagi dengan nol!';
+            operatorName = 'Pembagian';
+          } else {
+            result = num1 / num2;
+            operatorName = 'Pembagian';
+          }
+          break;
+        case '%':
+          result = num1 % num2;
+          operatorName = 'Modulus (Sisa Bagi)';
+          break;
+        case '**':
+          result = num1 ** num2;
+          operatorName = 'Pangkat';
+          break;
+        default:
+          result = 'Operator tidak valid';
+          operatorName = 'Error';
+      }
+      
+      const output = document.getElementById('calcOutput');
+      const resultDiv = document.getElementById('calcResult');
+      
+      resultDiv.innerHTML = `
+        <strong>${operatorName}:</strong> ${num1} ${operator} ${num2} = <span style="color: #007bff; font-size: 1.2em;">${result}</span>
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log(`Kalkulasi: ${num1} ${operator} ${num2} = ${result}`);
+    }
+
+    // 3. Grading System
+    function checkGrade() {
+      const score = parseInt(document.getElementById('grade').value);
+      
+      if (isNaN(score) || score < 0 || score > 100) {
+        alert('Masukkan nilai antara 0-100!');
+        return;
+      }
+      
+      let grade, message, color;
+      
+      if (score >= 90) {
+        grade = 'A';
+        message = 'Luar biasa! Pertahankan prestasi yang excellent!';
+        color = '#28a745';
+      } else if (score >= 80) {
+        grade = 'B';
+        message = 'Bagus! Tingkatkan sedikit lagi untuk mencapai A';
+        color = '#17a2b8';
+      } else if (score >= 70) {
+        grade = 'C';
+        message = 'Cukup baik. Masih ada ruang untuk improvement';
+        color = '#ffc107';
+      } else if (score >= 60) {
+        grade = 'D';
+        message = 'Perlu belajar lebih giat lagi';
+        color = '#fd7e14';
+      } else {
+        grade = 'F';
+        message = 'Jangan menyerah! Terus belajar dan coba lagi';
+        color = '#dc3545';
+      }
+      
+      const output = document.getElementById('gradeOutput');
+      const result = document.getElementById('gradeResult');
+      
+      result.innerHTML = `
+        <div style="color: ${color}; font-size: 1.1em;">
+          <strong>Nilai:</strong> ${score}/100<br>
+          <strong>Grade:</strong> ${grade}<br>
+          <strong>Pesan:</strong> ${message}
+        </div>
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log(`Grade Check: ${score} => ${grade} (${message})`);
+    }
+
+    // 4. Loop Demonstrations
+    function demoForLoop() {
+      let output = '<strong>For Loop (1-5):</strong><br>';
+      
+      for (let i = 1; i <= 5; i++) {
+        output += `Iterasi ${i}: ${i} × ${i} = ${i * i}<br>`;
+      }
+      
+      const outputDiv = document.getElementById('loopOutput');
+      const result = document.getElementById('loopResult');
+      
+      result.innerHTML = output;
+      outputDiv.style.display = 'block';
+      
+      console.log('=== FOR LOOP DEMO ===');
+      for (let i = 1; i <= 5; i++) {
+        console.log(`${i} x ${i} = ${i * i}`);
+      }
+    }
+
+    function demoWhileLoop() {
+      let output = '<strong>While Loop (Countdown):</strong><br>';
+      let count = 5;
+      
+      while (count > 0) {
+        output += `Countdown: ${count}<br>`;
+        count--;
+      }
+      output += 'Blast off! 🚀<br>';
+      
+      const outputDiv = document.getElementById('loopOutput');
+      const result = document.getElementById('loopResult');
+      
+      result.innerHTML = output;
+      outputDiv.style.display = 'block';
+      
+      console.log('=== WHILE LOOP DEMO ===');
+      let consoleCount = 5;
+      while (consoleCount > 0) {
+        console.log(`Countdown: ${consoleCount}`);
+        consoleCount--;
+      }
+      console.log('Blast off! 🚀');
+    }
+
+    function demoArrayLoop() {
+      const fruits = ['🍎 Apel', '🍌 Pisang', '🍊 Jeruk', '🥭 Mangga', '🍇 Anggur'];
+      let output = '<strong>Array Loop (Buah-buahan):</strong><br>';
+      
+      // For...of loop
+      for (let fruit of fruits) {
+        output += `- ${fruit}<br>`;
+      }
+      
+      output += '<br><strong>Array dengan index:</strong><br>';
+      
+      // Traditional for loop dengan index
+      for (let i = 0; i < fruits.length; i++) {
+        output += `${i + 1}. ${fruits[i]}<br>`;
+      }
+      
+      const outputDiv = document.getElementById('loopOutput');
+      const result = document.getElementById('loopResult');
+      
+      result.innerHTML = output;
+      outputDiv.style.display = 'block';
+      
+      console.log('=== ARRAY LOOP DEMO ===');
+      console.log('For...of loop:');
+      for (let fruit of fruits) {
+        console.log(fruit);
+      }
+      
+      console.log('For loop with index:');
+      for (let i = 0; i < fruits.length; i++) {
+        console.log(`${i + 1}. ${fruits[i]}`);
+      }
+    }
+
+    // 5. Function Demonstrations
+    function greetUser() {
+      const name = document.getElementById('userName').value.trim();
+      
+      if (!name) {
+        alert('Masukkan nama Anda terlebih dahulu!');
+        return;
+      }
+      
+      // Regular function
+      function createGreeting(userName) {
+        const hour = new Date().getHours();
+        let timeGreeting;
+        
+        if (hour < 12) {
+          timeGreeting = 'Selamat pagi';
+        } else if (hour < 15) {
+          timeGreeting = 'Selamat siang';
+        } else if (hour < 18) {
+          timeGreeting = 'Selamat sore';
+        } else {
+          timeGreeting = 'Selamat malam';
+        }
+        
+        return `${timeGreeting}, ${userName}! 👋 Selamat belajar JavaScript!`;
+      }
+      
+      const greeting = createGreeting(name);
+      
+      const output = document.getElementById('functionOutput');
+      const result = document.getElementById('functionResult');
+      
+      result.innerHTML = `
+        <div style="color: #28a745; font-size: 1.1em;">
+          ${greeting}
+        </div>
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log(`Greeting: ${greeting}`);
+    }
+
+    function demoArrowFunction() {
+      // Arrow functions examples
+      const add = (a, b) => a + b;
+      const multiply = (a, b) => a * b;
+      const square = x => x * x;
+      const greet = name => `Hello, ${name}!`;
+      
+      const examples = [
+        `add(5, 3) = ${add(5, 3)}`,
+        `multiply(4, 7) = ${multiply(4, 7)}`,
+        `square(6) = ${square(6)}`,
+        `greet('Sekolab') = ${greet('Sekolab')}`
+      ];
+      
+      const output = document.getElementById('functionOutput');
+      const result = document.getElementById('functionResult');
+      
+      result.innerHTML = `
+        <strong>Arrow Function Examples:</strong><br>
+        ${examples.join('<br>')}
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log('=== ARROW FUNCTION DEMO ===');
+      examples.forEach(example => console.log(example));
+    }
+
+    // 6. Object and Array Demonstrations
+    function demoObject() {
+      const student = {
+        nama: 'Ahmad Sekolab',
+        umur: 22,
+        jurusan: 'Teknik Informatika',
+        nilai: [85, 90, 78, 92],
+        alamat: {
+          kota: 'Jakarta',
+          kodePos: '12345'
+        },
+        // Method dalam object
+        hitungRataRata: function() {
+          const total = this.nilai.reduce((sum, nilai) => sum + nilai, 0);
+          return (total / this.nilai.length).toFixed(2);
+        }
+      };
+      
+      const output = document.getElementById('objectOutput');
+      const result = document.getElementById('objectResult');
+      
+      result.innerHTML = `
+        <strong>Object Student:</strong><br>
+        <strong>Nama:</strong> ${student.nama}<br>
+        <strong>Umur:</strong> ${student.umur} tahun<br>
+        <strong>Jurusan:</strong> ${student.jurusan}<br>
+        <strong>Nilai:</strong> [${student.nilai.join(', ')}]<br>
+        <strong>Rata-rata:</strong> ${student.hitungRataRata()}<br>
+        <strong>Alamat:</strong> ${student.alamat.kota}, ${student.alamat.kodePos}
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log('=== OBJECT DEMO ===');
+      console.log('Student object:', student);
+      console.log('Accessing properties:');
+      console.log(`Nama: ${student.nama}`);
+      console.log(`Rata-rata nilai: ${student.hitungRataRata()}`);
+    }
+
+    function demoArray() {
+      const numbers = [1, 2, 3, 4, 5];
+      const fruits = ['Apel', 'Pisang', 'Jeruk'];
+      
+      // Array methods
+      const doubled = numbers.map(num => num * 2);
+      const evenNumbers = numbers.filter(num => num % 2 === 0);
+      const sum = numbers.reduce((total, num) => total + num, 0);
+      
+      const output = document.getElementById('objectOutput');
+      const result = document.getElementById('objectResult');
+      
+      result.innerHTML = `
+        <strong>Array Methods Demo:</strong><br>
+        <strong>Original numbers:</strong> [${numbers.join(', ')}]<br>
+        <strong>Doubled (map):</strong> [${doubled.join(', ')}]<br>
+        <strong>Even numbers (filter):</strong> [${evenNumbers.join(', ')}]<br>
+        <strong>Sum (reduce):</strong> ${sum}<br>
+        <br>
+        <strong>Fruits array:</strong> [${fruits.join(', ')}]<br>
+        <strong>Length:</strong> ${fruits.length}<br>
+        <strong>First fruit:</strong> ${fruits[0]}<br>
+        <strong>Last fruit:</strong> ${fruits[fruits.length - 1]}
+      `;
+      
+      output.style.display = 'block';
+      
+      console.log('=== ARRAY DEMO ===');
+      console.log('Original numbers:', numbers);
+      console.log('Doubled:', doubled);
+      console.log('Even numbers:', evenNumbers);
+      console.log('Sum:', sum);
+    }
+
+    function demoStudentData() {
+      const students = [
+        { nama: 'Ahmad', nilai: 85, lulus: true },
+        { nama: 'Budi', nilai: 72, lulus: true },
+        { nama: 'Citra', nilai: 95, lulus: true },
+        { nama: 'Diana', nilai: 58, lulus: false }
+      ];
+      
+      const lulusStudents = students.filter(student => student.lulus);
+      const rataRata = students.reduce((total, student) => total + student.nilai, 0) / students.length;
+      const nilaiTertinggi = Math.max(...students.map(student => student.nilai));
+      
+      let output = '<strong>Data Mahasiswa:</strong><br>';
+      
+      students.forEach((student, index) => {
+        const status = student.lulus ? '✅ Lulus' : '❌ Tidak Lulus';
+        output += `${index + 1}. ${student.nama}: ${student.nilai} - ${status}<br>`;
+      });
+      
+      output += `<br><strong>Statistik:</strong><br>`;
+      output += `Total mahasiswa: ${students.length}<br>`;
+      output += `Mahasiswa lulus: ${lulusStudents.length}<br>`;
+      output += `Rata-rata nilai: ${rataRata.toFixed(2)}<br>`;
+      output += `Nilai tertinggi: ${nilaiTertinggi}<br>`;
+      
+      const outputDiv = document.getElementById('objectOutput');
+      const result = document.getElementById('objectResult');
+      
+      result.innerHTML = output;
+      outputDiv.style.display = 'block';
+      
+      console.log('=== STUDENT DATA DEMO ===');
+      console.log('All students:', students);
+      console.log('Passing students:', lulusStudents);
+      console.log(`Average score: ${rataRata.toFixed(2)}`);
+    }
+
+    // 7. Todo List Mini Project
+    function addTodo() {
+      const input = document.getElementById('todoInput');
+      const task = input.value.trim();
+      
+      if (!task) {
+        alert('Masukkan task terlebih dahulu!');
+        return;
+      }
+      
+      const todo = {
+        id: Date.now(),
+        task: task,
+        completed: false,
+        createdAt: new Date().toLocaleString('id-ID')
+      };
+      
+      todos.push(todo);
+      input.value = '';
+      renderTodos();
+      
+      console.log('Todo added:', todo);
+      console.log('All todos:', todos);
+    }
+
+    function toggleTodo(id) {
+      const todo = todos.find(todo => todo.id === id);
+      if (todo) {
+        todo.completed = !todo.completed;
+        renderTodos();
+        console.log('Todo toggled:', todo);
+      }
+    }
+
+    function deleteTodo(id) {
+      todos = todos.filter(todo => todo.id !== id);
+      renderTodos();
+      console.log('Todo deleted, remaining todos:', todos);
+    }
+
+    function clearTodos() {
+      if (todos.length === 0) {
+        alert('Tidak ada task untuk dihapus!');
+        return;
+      }
+      
+      if (confirm('Hapus semua task?')) {
+        todos = [];
+        renderTodos();
+        console.log('All todos cleared');
+      }
+    }
+
+    function renderTodos() {
+      const todoList = document.getElementById('todoList');
+      
+      if (todos.length === 0) {
+        todoList.innerHTML = '<p style="color: #666; font-style: italic;">Belum ada task. Tambahkan task pertama Anda!</p>';
+        return;
+      }
+      
+      let html = '<h4>📋 Daftar Task:</h4>';
+      
+      todos.forEach(todo => {
+        const completedClass = todo.completed ? 'text-decoration: line-through; color: #666;' : '';
+        const completedEmoji = todo.completed ? '✅' : '⭕';
+        
+        html += `
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px; margin: 5px 0; background: #f8f9fa; border-radius: 5px; border-left: 3px solid ${todo.completed ? '#28a745' : '#007bff'};">
+            <div style="flex: 1;">
+              <span style="${completedClass}">
+                ${completedEmoji} ${todo.task}
+              </span>
+              <br>
+              <small style="color: #666;">Dibuat: ${todo.createdAt}</small>
+            </div>
+            <div>
+              <button onclick="toggleTodo(${todo.id})" style="background: ${todo.completed ? '#6c757d' : '#28a745'}; margin-right: 5px;">
+                ${todo.completed ? 'Undo' : 'Selesai'}
+              </button>
+              <button onclick="deleteTodo(${todo.id})" style="background: #dc3545;">
+                Hapus
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      
+      const completed = todos.filter(todo => todo.completed).length;
+      const total = todos.length;
+      
+      html += `
+        <div style="margin-top: 15px; padding: 10px; background: #e9ecef; border-radius: 5px; text-align: center;">
+          <strong>Progress:</strong> ${completed}/${total} selesai 
+          ${completed === total && total > 0 ? '🎉 Semua task selesai!' : ''}
+        </div>
+      `;
+      
+      todoList.innerHTML = html;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 JavaScript Demo Page Loaded!');
+      console.log('Gunakan tombol-tombol di atas untuk melihat berbagai fitur JavaScript');
+      
+      // Initialize empty todo list
+      renderTodos();
+    });
+
+    // Tambahan: Demo event handling
+    document.addEventListener('keypress', function(event) {
+      if (event.target.id === 'todoInput' && event.key === 'Enter') {
+        addTodo();
+      }
+    });
+  </script>
+</body>
+</html>

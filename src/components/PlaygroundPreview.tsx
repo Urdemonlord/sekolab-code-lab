@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button';
 
 const PlaygroundPreview = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-background transition-colors duration-200">
+      <div className="container-responsive">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#223055] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Coding Playground
             </h2>
-            <p className="text-xl text-[#3f4d6d] mb-8">
+            <p className="text-xl text-secondary-content mb-8">
               Tulis, test, dan jalankan kode langsung di browser. 
               Tidak perlu install software apapun!
             </p>
@@ -61,7 +61,7 @@ const PlaygroundPreview = () => {
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 text-sm ml-4 font-mono">playground.py</span>
+                <span className="text-muted-foreground text-sm ml-4 font-mono">playground.py</span>
               </div>
               
               <div className="font-mono text-sm">

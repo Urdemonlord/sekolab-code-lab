@@ -34,7 +34,7 @@ const EditProfileDialog = ({ open, setOpen, user }: EditProfileDialogProps) => {
         </DialogHeader>
         <form onSubmit={handleSave} className="space-y-3">
           <div>
-            <label className="block mb-1 text-sm font-medium text-gray-700">Nama Lengkap</label>
+            <label className="block mb-1 text-sm font-medium text-foreground">Nama Lengkap</label>
             <Input value={name} onChange={e => setName(e.target.value)} autoFocus required />
           </div>
           {/* Akan bisa ditambah field lain, misal avatar */}

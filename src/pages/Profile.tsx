@@ -69,23 +69,24 @@ const Profile = () => {
       listener.subscription.unsubscribe();
     };
   }, [navigate]);
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background transition-colors duration-200">
       <Navigation />
       <div className="pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container-responsive">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Dashboard</h1>
-            <p className="text-xl text-gray-600">Selamat datang kembali, {user.name}! 👋</p>
+            <h1 className="text-4xl font-bold text-foreground mb-2">Dashboard</h1>
+            <p className="text-xl text-muted-foreground">Selamat datang kembali, {user.name}! 👋</p>
           </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Profile & Stats */}
             <div className="lg:col-span-1 space-y-6">
               <ProfileOverview user={user}/>
               <ProfileStats coursesCompleted={user.coursesCompleted} coursesInProgress={user.coursesInProgress}/>
             </div>
+            
             {/* Right Column - Main Content */}
             <div className="lg:col-span-2 space-y-8">
               <CoursesInProgress courses={coursesInProgress}/>

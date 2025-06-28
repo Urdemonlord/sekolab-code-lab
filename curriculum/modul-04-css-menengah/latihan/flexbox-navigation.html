@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan: Flexbox Navigation</title>
+    <style>
+        /* TODO: Implementasikan styles untuk navigation menggunakan Flexbox */
+        
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* 1. Buat container untuk header */
+        .header {
+            /* TODO: Tambahkan background, shadow, dan positioning */
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* 2. Buat navbar dengan Flexbox */
+        .navbar {
+            /* TODO: Gunakan display: flex untuk layout horizontal */
+            /* TODO: Atur justify-content untuk spacing */
+            /* TODO: Atur align-items untuk vertical alignment */
+            /* TODO: Tambahkan padding */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 3. Style untuk brand/logo */
+        .navbar__brand {
+            /* TODO: Style untuk logo/brand */
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar__brand:hover {
+            color: #0056b3;
+        }
+
+        /* 4. Style untuk navigation menu */
+        .navbar__nav {
+            /* TODO: Gunakan flex untuk horizontal layout */
+            /* TODO: Hapus default list styling */
+            /* TODO: Tambahkan gap antar items */
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .navbar__link {
+            /* TODO: Style untuk links */
+            /* TODO: Tambahkan hover effects */
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .navbar__link:hover {
+            color: #007bff;
+        }
+
+        .navbar__link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .navbar__link:hover::after {
+            width: 100%;
+        }
+
+        /* 5. Style untuk action buttons */
+        .navbar__actions {
+            /* TODO: Flex layout untuk buttons */
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            /* TODO: Style untuk buttons */
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn--primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn--outline:hover {
+            background: #007bff;
+            color: white;
+        }
+
+        /* 6. Responsive Design */
+        @media (max-width: 768px) {
+            .navbar__nav {
+                /* TODO: Hide navigation menu pada mobile */
+                display: none;
+            }
+
+            .navbar {
+                /* TODO: Implementasikan mobile-friendly layout */
+                padding: 1rem;
+            }
+
+            .navbar__actions {
+                gap: 0.5rem;
+            }
+
+            .btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Style tambahan untuk demo content */
+        .content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .instructions {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .instructions h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            line-height: 1.6;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .hint {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="navbar__brand">SekolabCSS</a>
+            
+            <ul class="navbar__nav">
+                <li><a href="#" class="navbar__link">Home</a></li>
+                <li><a href="#" class="navbar__link">Courses</a></li>
+                <li><a href="#" class="navbar__link">About</a></li>
+                <li><a href="#" class="navbar__link">Contact</a></li>
+            </ul>
+            
+            <div class="navbar__actions">
+                <a href="#" class="btn btn--outline">Login</a>
+                <a href="#" class="btn btn--primary">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Latihan Flexbox Navigation</h1>
+        
+        <div class="instructions">
+            <h2>Instruksi Latihan</h2>
+            <p>Lengkapi CSS untuk membuat navigation bar yang responsive menggunakan Flexbox. Ikuti langkah-langkah berikut:</p>
+            
+            <ol>
+                <li><strong>Header (.header)</strong>
+                    <ul>
+                        <li>Berikan background color putih</li>
+                        <li>Tambahkan box-shadow untuk depth</li>
+                        <li>Gunakan position: sticky agar tetap di atas saat scroll</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Navbar (.navbar)</strong>
+                    <ul>
+                        <li>Gunakan <code>display: flex</code></li>
+                        <li>Atur <code>justify-content: space-between</code> untuk spacing</li>
+                        <li>Atur <code>align-items: center</code> untuk vertical alignment</li>
+                        <li>Tambahkan padding yang sesuai</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Brand (.navbar__brand)</strong>
+                    <ul>
+                        <li>Style sebagai logo/brand dengan warna menarik</li>
+                        <li>Hilangkan text-decoration</li>
+                        <li>Berikan font-weight bold dan font-size yang lebih besar</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Navigation Menu (.navbar__nav)</strong>
+                    <ul>
+                        <li>Gunakan <code>display: flex</code></li>
+                        <li>Hilangkan list-style</li>
+                        <li>Tambahkan gap antar menu items</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Navigation Links (.navbar__link)</strong>
+                    <ul>
+                        <li>Hilangkan text-decoration</li>
+                        <li>Berikan warna yang sesuai</li>
+                        <li>Tambahkan hover effects dengan transition</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Action Buttons (.navbar__actions)</strong>
+                    <ul>
+                        <li>Gunakan flex untuk layout</li>
+                        <li>Tambahkan gap antar buttons</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Button Styles (.btn)</strong>
+                    <ul>
+                        <li>Style dasar: padding, border-radius, cursor</li>
+                        <li>Buat variant .btn--primary dan .btn--outline</li>
+                        <li>Tambahkan hover effects</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Responsive Design (Media Query)</strong>
+                    <ul>
+                        <li>Sembunyikan menu navigation pada mobile (max-width: 768px)</li>
+                        <li>Sesuaikan layout untuk layar kecil</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> Gunakan Flexbox properties seperti justify-content, align-items, flex-direction, dan gap untuk mengatur layout. Jangan lupa tambahkan transitions untuk smooth effects!
+            </div>
+            
+            <h2>Hasil yang Diharapkan</h2>
+            <ul>
+                <li>Navigation bar yang rapi dengan logo di kiri, menu di tengah, dan buttons di kanan</li>
+                <li>Hover effects pada links dan buttons</li>
+                <li>Responsive design yang menyembunyikan menu pada mobile</li>
+                <li>Sticky navigation yang tetap terlihat saat scroll</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

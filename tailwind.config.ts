@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -35,10 +36,21 @@ export default {
 				secondary: {
 					DEFAULT: '#eaf1fc', // Soft blue dari background logo
 					foreground: '#223055'
-				},
-				destructive: {
+				},				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				info: {
+					DEFAULT: 'hsl(var(--info))',
+					foreground: 'hsl(var(--info-foreground))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -72,9 +84,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 				xl: '12px'
-			},
-			boxShadow: {
-				'soft': '0 4px 12px rgba(38, 89, 195, 0.10)', // Shadow lebih kebiruan
+			},			boxShadow: {
+				'soft': '0 4px 12px rgba(38, 89, 195, 0.10)', // Shadow untuk light mode
+				'soft-dark': '0 4px 20px rgba(255, 192, 41, 0.15)', // Shadow untuk dark mode
 			},
 			keyframes: {
 				'glow': {
@@ -116,9 +128,8 @@ export default {
 				'glow': 'glow 2.2s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out',
-			}
+				'fade-in': 'fade-in 0.6s ease-out',			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

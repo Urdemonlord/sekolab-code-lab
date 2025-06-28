@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar HTML Dasar - Sekolab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    code {
+      background-color: #f1f1f1;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    .highlight {
+      background-color: #ffffcc;
+      padding: 10px;
+      border-left: 4px solid #ffeb3b;
+      margin: 15px 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Belajar HTML Dasar</h1>
+    
+    <div class="highlight">
+      <strong>💡 Tips:</strong> Buka halaman ini di browser untuk melihat hasilnya!
+    </div>
+    
+    <h2>Struktur Dokumen HTML</h2>
+    <p>
+      Dokumen HTML selalu dimulai dengan deklarasi <code>&lt;!DOCTYPE html&gt;</code>
+      yang memberitahu browser bahwa dokumen ini menggunakan HTML5.
+    </p>
+    <p>
+      Elemen <code>&lt;html&gt;</code> adalah elemen root dari dokumen HTML.
+      Sebaiknya sertakan atribut <code>lang</code> untuk aksesibilitas.
+    </p>
+    
+    <h2>Heading dan Paragraf</h2>
+    <h1>Heading Level 1</h1>
+    <h2>Heading Level 2</h2>
+    <h3>Heading Level 3</h3>
+    <h4>Heading Level 4</h4>
+    <h5>Heading Level 5</h5>
+    <h6>Heading Level 6</h6>
+    
+    <p>Ini adalah paragraf teks. Paragraf didefinisikan dengan tag &lt;p&gt;.</p>
+    <p>Ini adalah paragraf kedua. Perhatikan browser menambahkan jarak antar paragraf.</p>
+    
+    <h2>Pemformatan Teks</h2>
+    <p>
+      <strong>Teks ini penting (tebal)</strong> <br>
+      <em>Teks ini ditekankan (miring)</em> <br>
+      <mark>Teks ini disorot</mark> <br>
+      <small>Teks ini lebih kecil</small> <br>
+      <del>Teks ini telah dihapus</del> <br>
+      <ins>Teks ini telah ditambahkan</ins> <br>
+      H<sub>2</sub>O adalah rumus kimia air <br>
+      2<sup>3</sup> = 8
+    </p>
+    
+    <h2>Link (Hyperlink)</h2>
+    <p>
+      <a href="https://www.sekolab.com" target="_blank">Kunjungi Sekolab</a> <br>
+      <a href="latihan/profil.html">Contoh Halaman Profil</a> <br>
+      <a href="#list-section">Loncat ke Bagian List</a>
+    </p>
+    
+    <h2>Gambar</h2>
+    <img src="https://via.placeholder.com/600x300/4f46e5/ffffff?text=Contoh+Gambar+HTML" alt="Gambar Contoh HTML" width="600" height="300">
+    <p><em>Gambar di atas menggunakan placeholder service untuk demo</em></p>
+    
+    <h2 id="list-section">Jenis-jenis List</h2>
+    
+    <h3>Unordered List (Daftar Tidak Berurutan)</h3>
+    <ul>
+      <li>HTML - Struktur halaman web</li>
+      <li>CSS - Styling dan layout</li>
+      <li>JavaScript - Interaktivitas dan logika</li>
+    </ul>
+    
+    <h3>Ordered List (Daftar Berurutan)</h3>
+    <ol>
+      <li>Belajar HTML dasar</li>
+      <li>Belajar CSS untuk styling</li>
+      <li>Belajar JavaScript untuk interaktivitas</li>
+      <li>Praktik dengan project nyata</li>
+    </ol>
+    
+    <h3>Description List (Daftar Deskripsi)</h3>
+    <dl>
+      <dt>HTML</dt>
+      <dd>Hypertext Markup Language - bahasa untuk struktur halaman web</dd>
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets - bahasa untuk styling halaman web</dd>
+      <dt>JavaScript</dt>
+      <dd>JavaScript - bahasa pemrograman untuk membuat halaman web interaktif</dd>
+    </dl>
+    
+    <hr>
+    
+    <h2>Nested Lists (List Bersarang)</h2>
+    <ul>
+      <li>Frontend Development
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </li>
+      <li>Backend Development
+        <ul>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>PHP</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <h2>Komentar HTML</h2>
+    <p>Komentar HTML tidak ditampilkan di browser. Anda dapat melihat komentar dengan memeriksa kode sumber halaman ini (Ctrl+U atau klik kanan > View Source).</p>
+    <!-- Ini adalah komentar yang tidak akan ditampilkan di browser -->
+    <!-- 
+      Komentar multi-baris
+      untuk menjelaskan bagian kode yang kompleks
+      atau memberikan catatan untuk developer lain
+    -->
+    
+    <hr>
+    
+    <h2>Contoh Kombinasi Elemen</h2>
+    <div class="highlight">
+      <h3>Tips Belajar HTML</h3>
+      <ol>
+        <li><strong>Praktik langsung</strong> - Buat halaman HTML sendiri</li>
+        <li><em>Validasi kode</em> - Gunakan <a href="https://validator.w3.org/">W3C Validator</a></li>
+        <li><mark>Eksperimen</mark> - Coba kombinasi tag yang berbeda</li>
+        <li>Baca dokumentasi - <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs</a></li>
+      </ol>
+    </div>
+    
+    <footer>
+      <p>&copy; 2025 Sekolab - Belajar Coding & AI Jadi Mudah</p>
+      <p><small>Modul HTML Dasar | <a href="../lesson.md">Kembali ke Materi</a></small></p>
+    </footer>
+  </div>
+</body>
+</html>

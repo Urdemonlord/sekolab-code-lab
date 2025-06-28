@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Menengah - Demo Interaktif</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            
+            --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-size-base: 16px;
+            --line-height-base: 1.5;
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 3rem;
+            
+            --border-radius: 0.375rem;
+            --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --transition-base: all 0.15s ease-in-out;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header dengan Flexbox */
+        .header {
+            background: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .navbar__brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .navbar__nav {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .navbar__link {
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .navbar__link:hover {
+            color: var(--primary-color);
+        }
+
+        .navbar__link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar__link:hover::after {
+            width: 100%;
+        }
+
+        .navbar__actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        /* Hero Section dengan Grid */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero__subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* Buttons dengan Hover Effects */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-base);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .btn--primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn--outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Grid Layout untuk Features */
+        .features {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .feature-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition-base);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card__icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .feature-card__title {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Gallery dengan Flexbox */
+        .gallery {
+            padding: var(--spacing-xl) 0;
+            background: white;
+        }
+
+        .gallery__grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .gallery__item {
+            flex: 1 1 calc(33.333% - var(--spacing-md));
+            min-width: 250px;
+            height: 200px;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery__item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 123, 255, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery__item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery__item::after {
+            content: 'View Image';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery__item:hover::after {
+            opacity: 1;
+        }
+
+        /* Forms dengan Focus States */
+        .contact {
+            padding: var(--spacing-xl) 0;
+            background: var(--light-color);
+        }
+
+        .contact__form {
+            max-width: 600px;
+            margin: var(--spacing-lg) auto 0;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition-base);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar__nav {
+                display: none;
+            }
+            
+            .hero__title {
+                font-size: 2rem;
+            }
+            
+            .features__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery__item {
+                flex: 1 1 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-header__title {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header__subtitle {
+            color: var(--secondary-color);
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan Flexbox Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="navbar__brand">Sekolab</a>
+                <ul class="navbar__nav">
+                    <li><a href="#home" class="navbar__link">Home</a></li>
+                    <li><a href="#features" class="navbar__link">Features</a></li>
+                    <li><a href="#gallery" class="navbar__link">Gallery</a></li>
+                    <li><a href="#contact" class="navbar__link">Contact</a></li>
+                </ul>
+                <div class="navbar__actions">
+                    <a href="#" class="btn btn--outline">Login</a>
+                    <a href="#" class="btn btn--primary">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero__title">CSS Menengah Demo</h1>
+            <p class="hero__subtitle">Pelajari Flexbox, Grid, Responsive Design, dan CSS Modern</p>
+            <a href="#features" class="btn btn--primary">Mulai Belajar</a>
+            <a href="#gallery" class="btn btn--outline">Lihat Demo</a>
+        </div>
+    </section>
+
+    <!-- Features dengan CSS Grid -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Fitur CSS Menengah</h2>
+                <p class="section-header__subtitle">Teknologi yang akan Anda pelajari</p>
+            </div>
+            
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">📐</div>
+                    <h3 class="feature-card__title">Flexbox Layout</h3>
+                    <p>Sistem layout satu dimensi yang fleksibel untuk mengatur elemen secara horizontal atau vertikal.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">🎯</div>
+                    <h3 class="feature-card__title">CSS Grid</h3>
+                    <p>Sistem layout dua dimensi yang powerful untuk membuat layout kompleks dengan mudah.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">📱</div>
+                    <h3 class="feature-card__title">Responsive Design</h3>
+                    <p>Teknik membuat website yang adaptif di berbagai ukuran layar menggunakan media queries.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">✨</div>
+                    <h3 class="feature-card__title">Animations & Transitions</h3>
+                    <p>Membuat efek visual yang menarik dengan transformasi dan transisi CSS.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">🎨</div>
+                    <h3 class="feature-card__title">CSS Variables</h3>
+                    <p>Menggunakan custom properties untuk membuat CSS yang lebih maintainable.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon">📋</div>
+                    <h3 class="feature-card__title">BEM Methodology</h3>
+                    <p>Metodologi penamaan CSS yang terstruktur dan mudah dipahami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery dengan Flexbox -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Gallery Demo</h2>
+                <p class="section-header__subtitle">Contoh implementasi Flexbox untuk gallery</p>
+            </div>
+            
+            <div class="gallery__grid">
+                <div class="gallery__item" style="background: linear-gradient(45deg, #ff6b6b, #feca57);"></div>
+                <div class="gallery__item" style="background: linear-gradient(45deg, #48dbfb, #0abde3);"></div>
+                <div class="gallery__item" style="background: linear-gradient(45deg, #1dd1a1, #10ac84);"></div>
+                <div class="gallery__item" style="background: linear-gradient(45deg, #a55eea, #8854d0);"></div>
+                <div class="gallery__item" style="background: linear-gradient(45deg, #fd79a8, #e84393);"></div>
+                <div class="gallery__item" style="background: linear-gradient(45deg, #fdcb6e, #f39c12);"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Contact Form</h2>
+                <p class="section-header__subtitle">Form dengan focus states dan transitions</p>
+            </div>
+            
+            <form class="contact__form">
+                <div class="form-group">
+                    <label class="form-label" for="name">Nama Lengkap</label>
+                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="nama@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="message">Pesan</label>
+                    <textarea id="message" class="form-control" rows="5" placeholder="Tulis pesan Anda di sini..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn--primary" style="width: 100%;">
+                    Kirim Pesan
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling untuk anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact__form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form demo! Dalam aplikasi nyata, data akan dikirim ke server.');
+        });
+
+        // Gallery item click handler
+        document.querySelectorAll('.gallery__item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('Gallery item clicked! Dalam aplikasi nyata, ini akan membuka modal atau halaman detail.');
+            });
+        });
+    </script>
+</body>
+</html>

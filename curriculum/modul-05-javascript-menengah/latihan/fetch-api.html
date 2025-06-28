@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Fetch API - Quotes</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #quote-container {
+            width: 80%;
+            max-width: 600px;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quote-container">
+        <h1>Random Quote Generator</h1>
+        <blockquote id="quote">Click the button to get a new quote!</blockquote>
+        <p id="author"></p>
+    </div>
+
+    <button id="new-quote-btn">Get New Quote</button>
+
+    <script>
+        // LATIHAN: Fetch API
+        // 1. Ambil elemen button dan container quote.
+        const newQuoteBtn = document.getElementById('new-quote-btn');
+        const quoteEl = document.getElementById('quote');
+        const authorEl = document.getElementById('author');
+
+        // 2. Buat fungsi untuk mengambil data dari API 'https://api.quotable.io/random'.
+        //    Gunakan async/await untuk penanganan promise yang lebih bersih.
+        async function getQuote() {
+            try {
+                // Tampilkan loading state (opsional)
+                quoteEl.textContent = 'Loading...';
+                authorEl.textContent = '';
+
+                const response = await fetch('https://api.quotable.io/random');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                // 3. Tampilkan quote dan author ke dalam elemen HTML yang sesuai.
+                quoteEl.textContent = `"${data.content}"`;
+                authorEl.textContent = `- ${data.author}`;
+
+            } catch (error) {
+                console.error('Error fetching quote:', error);
+                quoteEl.textContent = 'Failed to fetch a new quote. Please try again!';
+                authorEl.textContent = '';
+            }
+        }
+
+        // 4. Tambahkan event listener 'click' pada button untuk memanggil fungsi getQuote.
+        newQuoteBtn.addEventListener('click', getQuote);
+
+        // 5. Panggil fungsi getQuote sekali saat halaman pertama kali dimuat (opsional).
+        getQuote();
+    </script>
+
+</body>
+</html>
